@@ -1,5 +1,5 @@
-#Simple CRM web app
-###List of technologies:
+# Simple CRM web app
+### List of technologies:
 - Maven
 - Spring
     - SpringMVC
@@ -7,11 +7,11 @@
 - AspectJ
 
 ____
-####About
+#### About
 This application has only an educational point.
 
 ____
-####Features
+#### Features
 - common CRUD operations
    - add customer
    
@@ -20,5 +20,5 @@ ____
    - update customer
    
 ____
-####Version
+#### Version
 Current version - 1.0
