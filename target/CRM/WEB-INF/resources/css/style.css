@@ -1,0 +1,59 @@
+.wrapper {
+    background-color: #89b900;
+    width: 35%;
+    height: 12%;
+}
+
+.button_add {
+    margin-top: 20px;
+    margin-left: 13%;
+    height: 5%;
+}
+
+.header_text_style {
+    margin-top: 1%;
+    font-size: 18pt;
+    padding-top: 5%;
+    color: antiquewhite;
+    font-family: "Times New Roman";
+}
+
+.header_container {
+    margin-left: 3%;
+}
+
+table {
+    margin-top: 1%;
+    border-collapse: collapse;
+    width: 35%;
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+tr:first-child{
+    background-color: #89b900;
+    width: 100%;
+}
+
+th {
+    background-color: #89b900;
+    color: white;
+}
+
+.create_form {
+    margin-top: 1%;
+}
+
+.save_customer {
+    margin-top: 1%;
+    margin-left: 2%;
+    margin-bottom: 1%;
+}
+
+
+
