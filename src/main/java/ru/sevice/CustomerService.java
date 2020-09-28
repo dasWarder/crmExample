@@ -36,12 +36,23 @@ public class CustomerService implements CustomerServiceInt {
     @Transactional
     @Override
     public Customer get(int id) {
-        return customerDao.get(id);
+        Customer customer = customerDao.get(id);
+        if (customer == null) {
+            throw new CustomerNotFound("Customer with id " + id + " not found");
+        }
+        return customer;
     }
 
     @Transactional
     @Override
     public void delete(int id) {
+
+        Customer customer = customerDao.get(id);
+
+        if (customer == null) {
+            throw new CustomerNotFound("Customer with id " + id +" not found");
+        }
+
         customerDao.delete(id);
     }
 

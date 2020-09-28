@@ -1,6 +1,8 @@
 package ru.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -8,12 +10,13 @@ import ru.dao.CustomerDao;
 import ru.entity.Customer;
 import ru.sevice.CustomerService;
 import ru.sevice.CustomerServiceInt;
+import ru.util.exception.CustomerNotFound;
 
 import javax.jws.WebParam;
 import java.util.*;
 
-@Controller
-@RequestMapping("/customer")
+@RestController
+@RequestMapping("/api")
 public class CustomerController {
 
     private CustomerServiceInt customerService;
@@ -23,49 +26,66 @@ public class CustomerController {
         this.customerService = customerService;
     }
 
-    @GetMapping("/list")
-    public String getCustomerList(Model model) {
+    @GetMapping("/customers")
+    public ResponseEntity<List<Customer>> getCustomerList(Model model) {
         List<Customer> customers = customerService.getAll();
 
         model.addAttribute("customers", customers);
 
-        return "customer-list";
+        return new ResponseEntity<>(customers, HttpStatus.OK);
     }
 
-    @GetMapping("/create")
-    public String getForm(Model model) {
-        model.addAttribute("customer", new Customer());
-        return "form";
-    }
-
-    @PostMapping("/create")
-    public String createCustomer(@ModelAttribute("customer") Customer customer) {
-
-        customerService.save(customer);
-
-        return "redirect:/customer/list";
-    }
-
-    @GetMapping("/update")
-    public String updateCustomer(@RequestParam(name = "customerId") int id, Model model) {
+    @GetMapping("customers/{id}")
+    public ResponseEntity<Customer> getCustomer(@PathVariable("id") int id) {
 
         Customer customer = customerService.get(id);
 
-        model.addAttribute("customer", customer);
+        return new ResponseEntity<>(customer, HttpStatus.OK);
+    }
 
-        return "form";
+//    @GetMapping("/create")
+//    public String getForm(Model model) {
+//        model.addAttribute("customer", new Customer());
+//        return "form";
+//    }
+//
+    @PostMapping("/customers")
+    public Customer createCustomer(@RequestBody Customer customer) {
+
+        customer.setId(0);
+
+        customerService.save(customer);
+
+        return customer;
+    }
+
+    @PutMapping("/customers")
+    public ResponseEntity<Customer> updateCustomer(@RequestBody Customer customer) {
+
+
+        customerService.save(customer);
+
+        return new ResponseEntity<>(customer, HttpStatus.OK);
 
     }
 
-    @GetMapping("/delete")
-    public String deleteCustomer(@RequestParam(name = "customerId") int id) {
+    @DeleteMapping("/customers/{id}")
+    public ResponseEntity<String> deleteCustomer(@PathVariable("id") int id) {
 
         customerService.delete(id);
 
-        return "redirect:/customer/list";
-
+        return new ResponseEntity<>("The customer with id " + id + " was delete",
+                HttpStatus.OK);
     }
 
-
+//    @GetMapping("/denied")
+//    public String accessDenied() {
+//        return "denied";
+//    }
+//
+//    @PostMapping("/")
+//    public String getAuth() {
+//        return "customer-list";
+//    }
 
 }
