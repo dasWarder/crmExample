@@ -1,14 +1,14 @@
 ru\config\HibernateConfig.class
 ru\sevice\CustomerService.class
-ru\config\SecurityWebAdapter.class
 ru\config\WebConfig.class
 ru\aspects\LoggingAspect.class
 ru\controller\CustomerController.class
 ru\dao\CustomerDao.class
 ru\sevice\CustomerServiceInt.class
 ru\dao\CustomerDaoImplementation.class
-ru\config\SecurityInitialization.class
 ru\config\DispatcherInitializer.class
 ru\JDBCConnectionTest.class
 ru\util\exception\CustomerNotFound.class
+ru\aspects\CustomExceptionHandler.class
+ru\entity\CustomException.class
 ru\entity\Customer.class

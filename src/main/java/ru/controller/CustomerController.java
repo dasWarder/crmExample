@@ -43,12 +43,6 @@ public class CustomerController {
         return new ResponseEntity<>(customer, HttpStatus.OK);
     }
 
-//    @GetMapping("/create")
-//    public String getForm(Model model) {
-//        model.addAttribute("customer", new Customer());
-//        return "form";
-//    }
-//
     @PostMapping("/customers")
     public Customer createCustomer(@RequestBody Customer customer) {
 
@@ -78,14 +72,5 @@ public class CustomerController {
                 HttpStatus.OK);
     }
 
-//    @GetMapping("/denied")
-//    public String accessDenied() {
-//        return "denied";
-//    }
-//
-//    @PostMapping("/")
-//    public String getAuth() {
-//        return "customer-list";
-//    }
 
 }

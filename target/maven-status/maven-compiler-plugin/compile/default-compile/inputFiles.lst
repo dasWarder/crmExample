@@ -2,12 +2,12 @@ E:\java\CRM\src\main\java\ru\dao\CustomerDao.java
 E:\java\CRM\src\main\java\ru\sevice\CustomerService.java
 E:\java\CRM\src\main\java\ru\util\exception\CustomerNotFound.java
 E:\java\CRM\src\main\java\ru\aspects\LoggingAspect.java
+E:\java\CRM\src\main\java\ru\aspects\CustomExceptionHandler.java
 E:\java\CRM\src\main\java\ru\controller\CustomerController.java
 E:\java\CRM\src\main\java\ru\JDBCConnectionTest.java
 E:\java\CRM\src\main\java\ru\sevice\CustomerServiceInt.java
-E:\java\CRM\src\main\java\ru\config\SecurityWebAdapter.java
-E:\java\CRM\src\main\java\ru\config\SecurityInitialization.java
 E:\java\CRM\src\main\java\ru\entity\Customer.java
+E:\java\CRM\src\main\java\ru\entity\CustomException.java
 E:\java\CRM\src\main\java\ru\dao\CustomerDaoImplementation.java
 E:\java\CRM\src\main\java\ru\config\HibernateConfig.java
 E:\java\CRM\src\main\java\ru\config\DispatcherInitializer.java
